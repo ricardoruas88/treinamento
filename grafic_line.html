@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Ano', 'Faturamento', 'Gastos'],
+          ['2010',  5000,      1000],
+          ['2011',  10000,      11000],
+          ['2012',  4480,       9500],
+          ['2013',  20000,      15000]
+        ]);
+
+        var options = {
+          title: 'Faturamento Mobili-TI',colors:['green','red'],curveType:'function'
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
